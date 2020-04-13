@@ -28,7 +28,7 @@ public class EnterTest {
     @After
     public void clearData() {
         driver.quit();
-        //очистить данные
+
     }
     @Given("User navigate to the login page")
     public void userNavigateToTheLoginPage() throws InterruptedException {
@@ -62,4 +62,5 @@ public class EnterTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.signIn();
     }
+
 }

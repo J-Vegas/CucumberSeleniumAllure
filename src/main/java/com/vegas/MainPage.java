@@ -10,6 +10,8 @@ public class MainPage {
     private By passwordInputLocator = By.cssSelector("#id_password");
     private By buttonEnterLoginAndPasswordLocator = By.cssSelector("button.btn.btn-primary.btn-block");
 
+    private By buttonCreateNewTopic = By.cssSelector(".btn.btn-primary.btn-block.btn-outline");
+
     private WebDriver driver;
 
     public MainPage(WebDriver driver){
@@ -20,18 +22,21 @@ public class MainPage {
         WebElement element = driver.findElement(buttonEnterLocator);
         Thread.sleep(2000);
         element.click();
+        System.out.println("I'm openLoginPanel");
         return this;
     }
 
     public MainPage inputLogin(String login) {
         WebElement element = driver.findElement(loginInputLocator);
         element.sendKeys(login);
+        System.out.println("I'm inputLogin");
         return this;
     }
 
     public MainPage inputPassword(String password) {
         WebElement element = driver.findElement(passwordInputLocator);
         element.sendKeys(password);
+        System.out.println("I'm inputPassword");
         return this;
     }
 
@@ -39,14 +44,27 @@ public class MainPage {
         WebElement element = driver.findElement(buttonEnterLoginAndPasswordLocator);
         Thread.sleep(2000);
         element.click();
+        System.out.println("I'm signIn");
         return this;
     }
 
-    public MainPage enterLoginAndPassword(String login, String password) {
+    public MainPage enterLoginAndPassword(String login, String password) throws InterruptedException {
         //openLoginPanel();
+        Thread.sleep(2000);
         inputLogin(login);
         inputPassword(password);
         //signIn();
+        System.out.println("I'm enterLoginAndPassword");
+        return this;
+    }
+
+    public MainPage signInAll(String login, String password) throws InterruptedException {
+        Thread.sleep(2000);
+        openLoginPanel();
+        enterLoginAndPassword(login, password);
+        signIn();
+        Thread.sleep(2000);
+        System.out.println("I'm signInAll");
         return this;
     }
 
