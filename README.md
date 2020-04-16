@@ -16,4 +16,6 @@
 
 Прогон тестов командой `mvn clean test` | Cформировать html–отчет `mvn allure:serve`
 
+![Image alt](https://github.com/J-Vegas/CucumberSeleniumAllure/blob/master/allurereport.png)
+
 
