@@ -6,7 +6,6 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -30,6 +29,7 @@ public class EnterTest {
         driver.quit();
 
     }
+
     @Given("User navigate to the login page")
     public void userNavigateToTheLoginPage() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
@@ -37,15 +37,14 @@ public class EnterTest {
     }
 
     @And("^User enter for Login \"([^\"]*)\"$")
-    public void userEnterForLogin(String login) throws Throwable{
+    public void userEnterForLogin(String login) throws Throwable {
         this.login = login;
         /*MainPage mainPage = new MainPage(driver);
         mainPage.inputLogin(login);*/
-
     }
 
     @And("^User enter for Password \"([^\"]*)\"$")
-    public void userEnterForPassword(String password) throws Throwable{
+    public void userEnterForPassword(String password) throws Throwable {
         this.password = password;
         /*MainPage mainPage = new MainPage(driver);
         mainPage.inputLogin(password);*/

@@ -10,8 +10,6 @@ public class MainPage {
     private By passwordInputLocator = By.cssSelector("#id_password");
     private By buttonEnterLoginAndPasswordLocator = By.cssSelector("button.btn.btn-primary.btn-block");
 
-    private By buttonCreateNewTopic = By.cssSelector(".btn.btn-primary.btn-block.btn-outline");
-
     private WebDriver driver;
 
     public MainPage(WebDriver driver){
@@ -49,23 +47,19 @@ public class MainPage {
     }
 
     public MainPage enterLoginAndPassword(String login, String password) throws InterruptedException {
-        //openLoginPanel();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         inputLogin(login);
         inputPassword(password);
-        //signIn();
         System.out.println("I'm enterLoginAndPassword");
         return this;
     }
 
     public MainPage signInAll(String login, String password) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         openLoginPanel();
         enterLoginAndPassword(login, password);
         signIn();
-        Thread.sleep(2000);
         System.out.println("I'm signInAll");
         return this;
     }
-
 }
