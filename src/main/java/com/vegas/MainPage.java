@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class MainPage {
+public class MainPage extends TestBase {
     private By buttonEnterLocator = By.cssSelector(".btn-sign-in");
     private By loginInputLocator = By.cssSelector("#id_username");
     private By passwordInputLocator = By.cssSelector("#id_password");
@@ -51,15 +51,6 @@ public class MainPage {
         inputLogin(login);
         inputPassword(password);
         System.out.println("I'm enterLoginAndPassword");
-        return this;
-    }
-
-    public MainPage signInAll(String login, String password) throws InterruptedException {
-        Thread.sleep(1000);
-        openLoginPanel();
-        enterLoginAndPassword(login, password);
-        signIn();
-        System.out.println("I'm signInAll");
         return this;
     }
 }

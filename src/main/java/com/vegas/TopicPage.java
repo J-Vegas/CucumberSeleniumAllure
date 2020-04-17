@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class TopicPage {
+public class TopicPage extends TestBase {
 
     private By buttonCreateNewTopic = By.xpath("//button[text()='Новая тема']");
     private By buttonPublishNewTopic = By.cssSelector(".btn.btn-primary.btn-sm.pull-right");

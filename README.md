@@ -14,6 +14,11 @@
 
 * Добавлены новые сценарии в `case02.feature`
 
+### Version 1.3
+
+* Добавлен класс `TestBase`
+* Произведен рефакторинг кода
+
 Прогон тестов командой `mvn clean test` | Cформировать html–отчет `mvn allure:serve`
 
 ![Image alt](https://github.com/J-Vegas/CucumberSeleniumAllure/blob/master/allurereport.png)
