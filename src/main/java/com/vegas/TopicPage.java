@@ -104,9 +104,10 @@ public class TopicPage extends TestBase {
         return assertText;
     }
 
-    public TopicPage clickCancelNewTopic() {
+    public TopicPage clickCancelNewTopic() throws InterruptedException {
         WebElement element = driver.findElement(buttonCancelNewTopic);
         element.click();
+        Thread.sleep(2000);
         return this;
     }
 

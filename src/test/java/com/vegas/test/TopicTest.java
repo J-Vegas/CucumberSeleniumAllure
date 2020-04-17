@@ -9,6 +9,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import sun.security.util.PendingException;
 
 public class TopicTest extends TestBase {
@@ -91,7 +92,7 @@ public class TopicTest extends TestBase {
     }
 
     @When("User click the button Отмена")
-    public void userClickTheButtonCancel() {
+    public void userClickTheButtonCancel() throws InterruptedException {
         TopicPage topicPage = new TopicPage(getDriver());
         topicPage.clickCancelNewTopic();
     }
@@ -153,5 +154,14 @@ public class TopicTest extends TestBase {
         TopicPage topicPage = new TopicPage(getDriver());
         this.messageAlert = messageAlert;
         Assert.assertEquals(messageAlert, topicPage.assertQuiz());
+    }
+
+    @Then("Pop-up message appears and click OK")
+    public void popUpMessageAppearsAndClickOK() throws InterruptedException {
+        TopicPage topicPage = new TopicPage(getDriver());
+        Alert myAlert = getDriver().switchTo().alert();
+        Thread.sleep(2000);
+        myAlert.accept();
+        Thread.sleep(2000);
     }
 }

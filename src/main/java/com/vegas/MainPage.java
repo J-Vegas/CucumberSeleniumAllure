@@ -18,7 +18,7 @@ public class MainPage extends TestBase {
 
     public MainPage openLoginPanel() throws InterruptedException {
         WebElement element = driver.findElement(buttonEnterLocator);
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         element.click();
         System.out.println("I'm openLoginPanel");
         return this;
@@ -40,14 +40,14 @@ public class MainPage extends TestBase {
 
     public MainPage signIn() throws InterruptedException {
         WebElement element = driver.findElement(buttonEnterLoginAndPasswordLocator);
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         element.click();
         System.out.println("I'm signIn");
         return this;
     }
 
     public MainPage enterLoginAndPassword(String login, String password) throws InterruptedException {
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         inputLogin(login);
         inputPassword(password);
         System.out.println("I'm enterLoginAndPassword");
