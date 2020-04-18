@@ -19,6 +19,12 @@
 * Добавлен класс `TestBase`
 * Произведен рефакторинг кода
 
+### Version 1.4
+
+* Добавлен класс `Hook` для запуска и закрытия браузера перед каждым тестом
+* Добавлен класс `LoginStep` для инициализации входа
+* Произведен рефакторинг кода
+
 Прогон тестов командой `mvn clean test` | Cформировать html–отчет `mvn allure:serve`
 
 ![Image alt](https://github.com/J-Vegas/CucumberSeleniumAllure/blob/master/allurereport.png)

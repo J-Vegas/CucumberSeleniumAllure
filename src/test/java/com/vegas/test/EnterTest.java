@@ -1,31 +1,19 @@
 package com.vegas.test;
 
+import com.vegas.Hook;
 import com.vegas.MainPage;
-import com.vegas.TestBase;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
-public class EnterTest extends TestBase {
+public class EnterTest {
 
     private String login;
     private String password;
 
-    @Before
-    public void prepareData() {
-        initialization();
-    }
-
-    @After
-    public void clearData() {
-        closeBrowser();
-    }
-
     @Given("User navigate to the login page")
     public void userNavigateToTheLoginPage() throws InterruptedException {
-        MainPage mainPage = new MainPage(getDriver());
+        MainPage mainPage = new MainPage(Hook.Driver);
         mainPage.openLoginPanel();
     }
 
@@ -41,13 +29,13 @@ public class EnterTest extends TestBase {
 
     @And("User click login button")
     public void userClickLoginButton() throws InterruptedException {
-        MainPage mainPage = new MainPage(getDriver());
+        MainPage mainPage = new MainPage(Hook.Driver);
         mainPage.enterLoginAndPassword(login, password);
     }
 
     @Then("User is enter")
     public void userIsEnter() throws InterruptedException {
-        MainPage mainPage = new MainPage(getDriver());
+        MainPage mainPage = new MainPage(Hook.Driver);
         mainPage.signIn();
     }
 }

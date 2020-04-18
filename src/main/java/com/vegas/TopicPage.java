@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class TopicPage extends TestBase {
+public class TopicPage extends LoginStep {
 
     private By buttonCreateNewTopic = By.xpath("//button[text()='Новая тема']");
     private By buttonPublishNewTopic = By.cssSelector(".btn.btn-primary.btn-sm.pull-right");
@@ -29,10 +29,8 @@ public class TopicPage extends TestBase {
 
     private By alert = By.cssSelector(".alert.alert-success");
 
-    private WebDriver driver;
-
     public TopicPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public TopicPage clickCreateNewTopicButton() throws InterruptedException {
