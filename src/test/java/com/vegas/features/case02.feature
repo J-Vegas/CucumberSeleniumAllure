@@ -28,7 +28,7 @@ Feature: TopicFeature
     Given User is authorization
     And User enters topic
     And User click on the button Ответить
-    And User adds a description text "New description's answer"
+    And User adds a description text "New descriptions answer"
     When User click the button Отправить ответ
     Then A response message appears in the subject
 
@@ -43,3 +43,5 @@ Feature: TopicFeature
     And User add answer options "AnswerOne" and "AnswerTwo"
     When User click the button Сообщение с голосованием
     Then Pop-up message appears "Голосование было опубликовано."
+
+

@@ -1,11 +1,10 @@
 package com.vegas;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.openqa.selenium.By.xpath;
 
 public class TopicPage extends LoginStep {
 
@@ -74,8 +73,8 @@ public class TopicPage extends LoginStep {
     }
 
     public TopicPage clickPreviewNewTopic() throws InterruptedException {
-        WebElement element = driver.findElement(buttonPreviewNewTopic);
-        element.click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(buttonPreviewNewTopic));
+        element.sendKeys(Keys.ENTER);
         Thread.sleep(1000);
         System.out.println("I'm clickPreviewNewTopic");
         return this;
@@ -101,7 +100,7 @@ public class TopicPage extends LoginStep {
     }
 
     public String assertTextResponseMessage() {
-        WebElement element = driver.findElement(textResponseMessage);
+        WebElement element = driver.findElement(xpath(String.format("//p[text()='%s']", "New descriptions answer")));
         String assertText = element.getText();
         return assertText;
     }
@@ -125,10 +124,9 @@ public class TopicPage extends LoginStep {
         return this;
     }
 
-    public TopicPage clickSendAnswer() throws InterruptedException {
-        WebElement element = driver.findElement(buttonSendAnswer);
-        element.click();
-        Thread.sleep(1000);
+    public TopicPage clickSendAnswer() {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(buttonSendAnswer));
+        element.sendKeys(Keys.ENTER);
         return this;
     }
 

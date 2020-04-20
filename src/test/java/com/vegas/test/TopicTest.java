@@ -99,7 +99,7 @@ public class TopicTest {
     }
 
     @When("User click the button Отправить ответ")
-    public void userClickTheButtonSendAnswer() throws InterruptedException {
+    public void userClickTheButtonSendAnswer() {
         TopicPage topicPage = new TopicPage(Hook.Driver);
         topicPage.clickSendAnswer();
     }
@@ -107,7 +107,7 @@ public class TopicTest {
     @Then("A response message appears in the subject")
     public void aResponseMessageAppearsInTheSubject() {
         TopicPage topicPage = new TopicPage(Hook.Driver);
-        Assert.assertEquals("New description's answer", topicPage.assertTextResponseMessage());
+        Assert.assertEquals("New descriptions answer", topicPage.assertTextResponseMessage());
     }
 
     @And("User click the button Добавить опрос")
