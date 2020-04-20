@@ -18,7 +18,7 @@ public class LoginStep {
     private By buttonEnterLoginAndPasswordLocator = By.cssSelector("button.btn.btn-primary.btn-block");
 
 
-    public void authorization(String login, String password) throws InterruptedException {
+    public void authorization(String login, String password) {
         WebElement element = driver.findElement(buttonEnterLocator);
         element.click();
         element = driver.findElement(loginInputLocator);
@@ -26,7 +26,6 @@ public class LoginStep {
         element = driver.findElement(passwordInputLocator);
         element.sendKeys(password);
         element = driver.findElement(buttonEnterLoginAndPasswordLocator);
-        Thread.sleep(2000);
         element.click();
     }
 }

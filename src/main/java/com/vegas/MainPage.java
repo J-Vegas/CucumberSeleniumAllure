@@ -16,7 +16,7 @@ public class MainPage {
         this.driver = driver;
     }
 
-    public MainPage openLoginPanel() throws InterruptedException {
+    public MainPage openLoginPanel() {
         WebElement element = driver.findElement(buttonEnterLocator);
         element.click();
         System.out.println("I'm openLoginPanel");
@@ -37,14 +37,14 @@ public class MainPage {
         return this;
     }
 
-    public MainPage signIn() throws InterruptedException {
+    public MainPage signIn() {
         WebElement element = driver.findElement(buttonEnterLoginAndPasswordLocator);
         element.click();
         System.out.println("I'm signIn");
         return this;
     }
 
-    public MainPage enterLoginAndPassword(String login, String password) throws InterruptedException {
+    public MainPage enterLoginAndPassword(String login, String password) {
         inputLogin(login);
         inputPassword(password);
         System.out.println("I'm enterLoginAndPassword");

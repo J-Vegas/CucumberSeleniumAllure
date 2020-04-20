@@ -1,8 +1,6 @@
 package com.vegas.test;
 
 import com.vegas.Hook;
-
-import com.vegas.LoginStep;
 import com.vegas.TopicPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -22,13 +20,13 @@ public class TopicTest {
     private String messageTwo;
 
     @Given("User is authorization")
-    public void userIsAuthorization() throws InterruptedException {
+    public void userIsAuthorization() {
         TopicPage topicPage = new TopicPage(Hook.Driver);
         topicPage.authorization("testforlanit", "qwe321zxc");
     }
 
     @And("User click the button Новая тема")
-    public void userClickTheButton() throws InterruptedException {
+    public void userClickTheButton() {
         TopicPage topicPage = new TopicPage(Hook.Driver);
         topicPage.clickCreateNewTopicButton();
     }
@@ -50,12 +48,13 @@ public class TopicTest {
     @When("User click the button Опубликовать тему")
     public void userClickTheButtonPublicTopic() throws InterruptedException {
         TopicPage topicPage = new TopicPage(Hook.Driver);
-        topicPage.clickPublichNewTopic();
+        topicPage.clickPublicNewTopic();
     }
 
     @Then("Topic created and published")
-    public void topicCreatedAndPublished() {
+    public void topicCreatedAndPublished() throws InterruptedException {
         TopicPage topicPage = new TopicPage(Hook.Driver);
+        Thread.sleep(1000);
         Assert.assertEquals("New topic Vegas", topicPage.assertTextTopicTitle());
     }
 
@@ -83,6 +82,7 @@ public class TopicTest {
     @When("User click the button Отмена")
     public void userClickTheButtonCancel() throws InterruptedException {
         TopicPage topicPage = new TopicPage(Hook.Driver);
+        Thread.sleep(1000);
         topicPage.clickCancelNewTopic();
     }
 
@@ -93,7 +93,7 @@ public class TopicTest {
     }
 
     @And("User click on the button Ответить")
-    public void userClickOnTheButtonAnswer() throws InterruptedException {
+    public void userClickOnTheButtonAnswer() {
         TopicPage topicPage = new TopicPage(Hook.Driver);
         topicPage.clickAnswerTheTopic();
     }
@@ -111,7 +111,7 @@ public class TopicTest {
     }
 
     @And("User click the button Добавить опрос")
-    public void userClickTheButtonCreateQuiz() throws InterruptedException {
+    public void userClickTheButtonCreateQuiz() {
         TopicPage topicPage = new TopicPage(Hook.Driver);
         topicPage.clickCreateQuiz();
     }
@@ -139,18 +139,16 @@ public class TopicTest {
     }
 
     @Then("Pop-up message appears \"([^\"]*)\"$")
-    public void popUpMessageAppearsQuiz(String messageAlert) {
+    public void popUpMessageAppearsQuiz(String messageAlert) throws InterruptedException {
         TopicPage topicPage = new TopicPage(Hook.Driver);
         this.messageAlert = messageAlert;
         Assert.assertEquals(messageAlert, topicPage.assertQuiz());
     }
 
     @Then("Pop-up message appears and click OK")
-    public void popUpMessageAppearsAndClickOK() throws InterruptedException {
+    public void popUpMessageAppearsAndClickOK() {
         TopicPage topicPage = new TopicPage(Hook.Driver);
         Alert myAlert = Hook.Driver.switchTo().alert();
-        Thread.sleep(2000);
         myAlert.accept();
-        Thread.sleep(2000);
     }
 }

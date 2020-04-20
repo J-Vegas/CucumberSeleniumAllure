@@ -12,7 +12,7 @@ public class EnterTest {
     private String password;
 
     @Given("User navigate to the login page")
-    public void userNavigateToTheLoginPage() throws InterruptedException {
+    public void userNavigateToTheLoginPage() {
         MainPage mainPage = new MainPage(Hook.Driver);
         mainPage.openLoginPanel();
     }
@@ -28,13 +28,13 @@ public class EnterTest {
     }
 
     @And("User click login button")
-    public void userClickLoginButton() throws InterruptedException {
+    public void userClickLoginButton() {
         MainPage mainPage = new MainPage(Hook.Driver);
         mainPage.enterLoginAndPassword(login, password);
     }
 
     @Then("User is enter")
-    public void userIsEnter() throws InterruptedException {
+    public void userIsEnter() {
         MainPage mainPage = new MainPage(Hook.Driver);
         mainPage.signIn();
     }

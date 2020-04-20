@@ -4,11 +4,13 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TopicPage extends LoginStep {
 
     private By buttonCreateNewTopic = By.xpath("//button[text()='Новая тема']");
-    private By buttonPublishNewTopic = By.cssSelector(".btn.btn-primary.btn-sm.pull-right");
+    private By buttonPublicNewTopic = By.xpath("//button[text()='Опубликовать тему']");
     private By buttonPreviewNewTopic = By.xpath("//button[text()='Предпросмотр']");
     private By buttonCancelNewTopic = By.xpath("//button[text()='Отмена']");
     private By buttonAnswerTheTopic = By.xpath("(//button[@class='btn btn-primary btn-block btn-outline'])[1]");
@@ -17,7 +19,7 @@ public class TopicPage extends LoginStep {
     private By buttonCreateQuiz = By.xpath("(//button[text()='Добавить опрос'])[2]");
     private By buttonPublishNewQuiz = By.xpath("//button[text()='Сообщение с голосованием']");
 
-    private By textPreviewNewTopic = By.cssSelector(".misago-markup p");//.modal-title
+    private By textPreviewNewTopic = By.cssSelector(".misago-markup p");
     private By textTopicTitle = By.cssSelector("div h1");
     private By textResponseMessage = By.xpath("(//article[@class='misago-markup'])[last()]");
 
@@ -33,11 +35,11 @@ public class TopicPage extends LoginStep {
         super(driver);
     }
 
-    public TopicPage clickCreateNewTopicButton() throws InterruptedException {
-        Thread.sleep(2000);
+    WebDriverWait wait = new WebDriverWait(driver, 10, 100);
+
+    public TopicPage clickCreateNewTopicButton() {
         WebElement element = driver.findElement(buttonCreateNewTopic);
         element.click();
-        Thread.sleep(2000);
         System.out.println("I'm clickCreateNewTopicButton");
         return this;
     }
@@ -56,10 +58,11 @@ public class TopicPage extends LoginStep {
         return this;
     }
 
-    public TopicPage clickPublichNewTopic() throws InterruptedException {
-        WebElement element = driver.findElement(buttonPublishNewTopic);
+    public TopicPage clickPublicNewTopic() throws InterruptedException {
+        WebElement element = driver.findElement(buttonPublicNewTopic);
+        wait.until(ExpectedConditions.elementToBeClickable(buttonPublicNewTopic));
+        Thread.sleep(1000);
         element.click();
-        Thread.sleep(2000);
         System.out.println("I'm clickPublishNewTopic");
         return this;
     }
@@ -73,7 +76,7 @@ public class TopicPage extends LoginStep {
     public TopicPage clickPreviewNewTopic() throws InterruptedException {
         WebElement element = driver.findElement(buttonPreviewNewTopic);
         element.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         System.out.println("I'm clickPreviewNewTopic");
         return this;
     }
@@ -84,8 +87,9 @@ public class TopicPage extends LoginStep {
         return assertText;
     }
 
-    public String assertQuiz() {
+    public String assertQuiz() throws InterruptedException {
         WebElement element = driver.findElement(alert);
+        Thread.sleep(1000);
         String assertText = element.getText();
         return assertText;
     }
@@ -102,39 +106,35 @@ public class TopicPage extends LoginStep {
         return assertText;
     }
 
-    public TopicPage clickCancelNewTopic() throws InterruptedException {
+    public TopicPage clickCancelNewTopic() {
         WebElement element = driver.findElement(buttonCancelNewTopic);
         element.click();
-        Thread.sleep(2000);
         return this;
     }
 
     public TopicPage clickOpenTopic() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         WebElement element = driver.findElement(buttonOpenTopic);
         element.click();
         return this;
     }
 
-    public TopicPage clickAnswerTheTopic() throws InterruptedException {
-        Thread.sleep(2000);
+    public TopicPage clickAnswerTheTopic() {
         WebElement element = driver.findElement(buttonAnswerTheTopic);
         element.click();
-        Thread.sleep(2000);
         return this;
     }
 
     public TopicPage clickSendAnswer() throws InterruptedException {
         WebElement element = driver.findElement(buttonSendAnswer);
         element.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         return this;
     }
 
-    public TopicPage clickCreateQuiz() throws InterruptedException {
+    public TopicPage clickCreateQuiz() {
         WebElement element = driver.findElement(buttonCreateQuiz);
         element.click();
-        Thread.sleep(2000);
         return this;
     }
 
@@ -161,8 +161,8 @@ public class TopicPage extends LoginStep {
 
     public TopicPage clickPublishNewQuiz() throws InterruptedException {
         WebElement element = driver.findElement(buttonPublishNewQuiz);
+        Thread.sleep(1000);
         element.click();
-        Thread.sleep(2000);
         System.out.println("I'm clickPublishNewQuiz");
         return this;
     }
